@@ -311,7 +311,7 @@ class dbo_pgsql extends dbo
     {
         $sql = "CREATE DATABASE $db";
         $dsn = "pgsql:{$this->connection}={$this->host}";
-        $pdo = new PDO($dsn, $this->user, $this->password);
+        $pdo = new PDO($dsn, 'postgres', '');
         $pdo->exec($sql);
 
         return $pdo->errorCode() === PDO::ERR_NONE;
@@ -321,7 +321,7 @@ class dbo_pgsql extends dbo
     {
         $sql = "DROP DATABASE IF EXISTS $db";
         $dsn = "pgsql:{$this->connection}={$this->host}";
-        $pdo = new PDO($dsn, $this->user, $this->password);
+        $pdo = new PDO($dsn, 'postgres', '');
         $pdo->exec($sql);
 
         return $pdo->errorCode() === PDO::ERR_NONE;
